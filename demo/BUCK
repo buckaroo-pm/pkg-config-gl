@@ -1,9 +1,0 @@
-cxx_binary(
-  name = 'demo', 
-  srcs = [
-    'demo.c', 
-  ], 
-  deps = [
-    '//:curl', 
-  ], 
-)

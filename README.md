@@ -1,9 +1,3 @@
-# pkg-config-curl
+# pkg-config-gl
 
-Buck wrapper for libcurl managed by `pkg-config`. 
-
-To run the demo: 
-
-```bash=
-buck run ./demo
-```
+Buck wrapper for gl managed by `pkg-config`.

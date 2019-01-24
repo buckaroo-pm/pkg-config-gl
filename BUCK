@@ -1,28 +1,28 @@
 pkg_config = read_config('pkg_config', 'path', 'pkg-config')
 
 genrule(
-  name = 'preprocessor-flags', 
-  out = 'out.txt', 
-  cmd = pkg_config + ' libcurl --cflags > $OUT', 
+  name = 'preprocessor-flags',
+  out = 'out.txt',
+  cmd = pkg_config + ' gl --cflags > $OUT',
 )
 
 genrule(
-  name = 'linker-flags', 
-  out = 'out.txt', 
-  cmd = pkg_config + ' libcurl --libs > $OUT', 
+  name = 'linker-flags',
+  out = 'out.txt',
+  cmd = pkg_config + ' gl --libs > $OUT',
 )
 
 prebuilt_cxx_library(
-  name = 'curl', 
-  header_namespace = '', 
-  header_only = True, 
+  name = 'gl',
+  header_namespace = '',
+  header_only = True,
   exported_preprocessor_flags = [
-    '@$(location :preprocessor-flags)', 
-  ], 
+    '@$(location :preprocessor-flags)',
+  ],
   exported_linker_flags = [
-    '@$(location :linker-flags)', 
-  ], 
+    '@$(location :linker-flags)',
+  ],
   visibility = [
-    'PUBLIC', 
-  ], 
+    'PUBLIC',
+  ],
 )
